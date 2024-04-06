@@ -1,5 +1,5 @@
 local M = {}
 
-M.ui = { theme = "doomchad" }
+M.ui = { theme = "everblush" }
 
 return M
