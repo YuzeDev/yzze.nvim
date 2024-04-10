@@ -12,6 +12,12 @@ local M = {
     javascriptreact = {
       require("formatter.filetypes.javascriptreact").prettier
     },
+    rust = {
+      require("formatter.filetypes.rust").rustfmt
+    },
+    cpp = {
+      require("formatter.filetypes.cpp").clangformat
+    },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace
     }

@@ -1,39 +1,30 @@
+local merge_tb = vim.tbl_deep_extend
+
 local config = require("nvchad.configs.lspconfig")
 local on_attach = config.on_attach
 local capabilities = config.capabilities
 
 local lspconfig = require "lspconfig"
 
-local function organize_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = {vim.api.nvim_buf_get_name(0)},
+local servers = {
+  "tailwindcss",
+  "eslint",
+  "tsserver",
+  "rust_analyzer",
+  "clangd"
+}
+
+for _, lsp in ipairs(servers) do
+  local opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
   }
-  vim.lsp.buf.execute_command(params)
+
+  local exists, settings = pcall(require, "lsp." .. lsp)
+
+  if exists then
+    opts = merge_tb("force", settings, opts)
+  end
+
+  lspconfig[lsp].setup(opts)
 end
-
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  init_options = {
-    preferences = {
-      disableSuggestions = true,
-    }
-  },
-  commands = {
-    OrganizeImports = {
-      organize_imports,
-      description = "Organize Imports",
-    }
-  }
-}
-
-lspconfig.tailwindcss.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-lspconfig.eslint.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}

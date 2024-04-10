@@ -8,7 +8,16 @@ return {
       "lua-language-server",
       "html-lsp",
       "prettier",
-      "stylua"
+
+      -- Lua
+      "stylua",
+
+      -- cpp/c/rust/go
+      "rust-analyzer",
+      "clangd",
+      "clang-format",
+      "gopls",
+      "codelldb",
     }
   }
 }
