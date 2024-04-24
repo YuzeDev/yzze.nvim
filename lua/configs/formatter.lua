@@ -12,11 +12,17 @@ local M = {
     javascriptreact = {
       require("formatter.filetypes.javascriptreact").prettier
     },
+    svelte = {
+      require("formatter.filetypes.svelte").prettier
+    },
     rust = {
       require("formatter.filetypes.rust").rustfmt
     },
     cpp = {
       require("formatter.filetypes.cpp").clangformat
+    },
+    python = {
+      require("formatter.filetypes.python").black
     },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace

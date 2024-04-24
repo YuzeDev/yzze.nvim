@@ -8,10 +8,15 @@ local lspconfig = require "lspconfig"
 
 local servers = {
   "tailwindcss",
+  "svelte",
   "eslint",
   "tsserver",
   "rust_analyzer",
-  "clangd"
+  "clangd",
+  "pyright",
+
+  -- R
+  "r_language_server",
 }
 
 for _, lsp in ipairs(servers) do

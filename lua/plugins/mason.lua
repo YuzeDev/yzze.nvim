@@ -4,13 +4,14 @@ return {
     ensure_installed = {
       "typescript-language-server",
       "tailwindcss-language-server",
+      "svelte-langiage-server",
       "eslint-lsp",
-      "lua-language-server",
       "html-lsp",
       "prettier",
 
       -- Lua
       "stylua",
+      "lua-language-server",
 
       -- cpp/c/rust/go
       "rust-analyzer",
@@ -18,6 +19,13 @@ return {
       "clang-format",
       "gopls",
       "codelldb",
+
+      -- R
+      "r-languageserver",
+
+      -- python
+      "pyright",
+      "black",
     }
   }
 }
